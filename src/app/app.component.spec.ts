@@ -1,27 +1,14 @@
-import { TestBed, async } from '@angular/core/testing';
+import test from 'ava';
+
 import { AppComponent } from './app.component';
-describe('AppComponent', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  }));
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
-  it(`should have as title 'app'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app');
-  }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');
-  }));
+
+const app = new AppComponent(null);
+
+test('Title is \'App Component\'!', (t) => {
+  const expected = 'App Component!';
+  t.is(app.title, expected);
+});
+
+test(`Title is 'this should fail'`, (t) => {
+  t.is(app.title, 'this should fail');
 });

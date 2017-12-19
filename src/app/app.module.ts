@@ -1,16 +1,23 @@
+/* Modules */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
+/* Components */
 import { AppComponent } from './app.component';
+import { ChartJsComponent } from './shared/chartjs/chartjs.component';
+/* Services */
+import { DarkSkyWeatherService } from './services/index';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChartJsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ DarkSkyWeatherService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
